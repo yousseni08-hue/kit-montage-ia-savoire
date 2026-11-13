@@ -6,7 +6,7 @@ Le kit de montage IA du programme SAVOIRE : un installateur pour Mac, les règle
 
 1. Ouvre une nouvelle conversation sur claude.ai.
 2. Colle le contenu de [GUIDE-CLAUDE.md](GUIDE-CLAUDE.md).
-3. Claude te guide étape par étape. Si quelque chose bloque, envoie-lui une capture d'écran.
+3. Claude te guide étape par étape, en commençant par installer Claude Code dans ton Terminal (la priorité). Si quelque chose bloque, envoie-lui une capture d’écran.
 
 L'installateur (`install.sh`) installe les outils vidéo, Claude Code, crée le dossier `~/Montage-IA` et le raccourci `cc`. Il se relance sans risque : rien n'est écrasé.
 
