@@ -2,13 +2,17 @@
 
 Ce dossier sert à monter des reels avec Claude Code, du rush brut jusqu'à la publication dans Metricool.
 
-## Raccourcis
-L'utilisateur tape un raccourci (« P0 », « P1 : <chemin du rush> », « STYLE : <liens> », « P6 : <corrections> »…). Ouvre PROMPTS.md, prends la section correspondante, remplace les < > par ce qu'il a donné (ou demande ce qui manque, en une seule question groupée), et exécute-la.
+## Comment l'utilisateur te parle
+Il te parle normalement, comme à un monteur : « monte-moi ce rush », « copie le style de ces reels », « refais le 4 et le 11 », « mets-les sur le Drive », « programme-les à partir de lundi ». Il ne connaît aucun code d'étape et n'a rien à retenir.
+- Reconnais l'étape dans ETAPES.md et exécute-la. S'il manque une info, demande-la en une seule question groupée.
+- À la fin de chaque étape, dis en une phrase ce qui vient ensuite et propose de le lancer (« Je monte le clip test ? »). Un « oui » suffit.
+- S'il dit « monte ce rush de A à Z », enchaîne toutes les étapes et ne t'arrête qu'aux validations : page de revue, clip test, lot monté, descriptions, planning Metricool.
+- Ne lui demande jamais de taper un code ou une commande.
 
 ## Avant tout montage
 - Lire METHODE.md (notre méthode : choix des clips, coupes, hooks, habillage), ERREURS.md et la fiche de style du format dans styles/.
-- Pas encore de fiche de style ? Proposer styles/savoire-audit.md (le style des reels SAVOIRE) ou STYLE pour en copier un autre.
-- S'il n'existe pas encore de moteur dans moteur/, proposer P0.
+- Pas encore de fiche de style ? Proposer styles/savoire-audit.md (le style des reels SAVOIRE) ou de copier le style de reels qu'il aime.
+- S'il n'existe pas encore de moteur dans moteur/, proposer de le construire (ETAPES.md, « Construire le moteur ») avant tout.
 
 ## Le moteur
 - Un seul moteur dans moteur/. Jamais de copie par projet.

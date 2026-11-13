@@ -40,13 +40,17 @@ ecrire "$KIT/CLAUDE.md" <<'KIT_FILE_END'
 
 Ce dossier sert à monter des reels avec Claude Code, du rush brut jusqu'à la publication dans Metricool.
 
-## Raccourcis
-L'utilisateur tape un raccourci (« P0 », « P1 : <chemin du rush> », « STYLE : <liens> », « P6 : <corrections> »…). Ouvre PROMPTS.md, prends la section correspondante, remplace les < > par ce qu'il a donné (ou demande ce qui manque, en une seule question groupée), et exécute-la.
+## Comment l'utilisateur te parle
+Il te parle normalement, comme à un monteur : « monte-moi ce rush », « copie le style de ces reels », « refais le 4 et le 11 », « mets-les sur le Drive », « programme-les à partir de lundi ». Il ne connaît aucun code d'étape et n'a rien à retenir.
+- Reconnais l'étape dans ETAPES.md et exécute-la. S'il manque une info, demande-la en une seule question groupée.
+- À la fin de chaque étape, dis en une phrase ce qui vient ensuite et propose de le lancer (« Je monte le clip test ? »). Un « oui » suffit.
+- S'il dit « monte ce rush de A à Z », enchaîne toutes les étapes et ne t'arrête qu'aux validations : page de revue, clip test, lot monté, descriptions, planning Metricool.
+- Ne lui demande jamais de taper un code ou une commande.
 
 ## Avant tout montage
 - Lire METHODE.md (notre méthode : choix des clips, coupes, hooks, habillage), ERREURS.md et la fiche de style du format dans styles/.
-- Pas encore de fiche de style ? Proposer styles/savoire-audit.md (le style des reels SAVOIRE) ou STYLE pour en copier un autre.
-- S'il n'existe pas encore de moteur dans moteur/, proposer P0.
+- Pas encore de fiche de style ? Proposer styles/savoire-audit.md (le style des reels SAVOIRE) ou de copier le style de reels qu'il aime.
+- S'il n'existe pas encore de moteur dans moteur/, proposer de le construire (ETAPES.md, « Construire le moteur ») avant tout.
 
 ## Le moteur
 - Un seul moteur dans moteur/. Jamais de copie par projet.
@@ -236,12 +240,14 @@ Exemple : « Une pub qui marche trop bien peut devenir un problème. Quand ton c
 - Notion (si tu l'utilises) : une ligne par clip avec Hook, IN, OUT (au format HH:MM:SS:FF), Durée, Description, Lien, Statut, triée par IN croissant. Un clip écarté passe en « Pas clippable » au lieu d'être supprimé.
 - Rythme qui marche chez nous : 2 reels par jour et par personne, une dizaine d'avance. Le goulot doit être le tournage, jamais le montage.
 KIT_FILE_END
-ecrire "$KIT/PROMPTS.md" <<'KIT_FILE_END'
-# Pré-prompts du montage IA
+ecrire "$KIT/ETAPES.md" <<'KIT_FILE_END'
+# Les étapes du montage
 
-L'utilisateur tape le raccourci (P0, P1, STYLE…) suivi de ses infos. Les < > sont à remplir avec ce qu'il donne.
+L'utilisateur ne connaît aucun code d'étape : il parle normalement. Reconnais l'étape à ce qu'il dit (les phrases « Il peut dire » sont des exemples, pas des formules à respecter). Les < > sont à remplir avec ce qu'il donne ; s'il manque quelque chose, demande-le en une seule question groupée.
+À la fin de chaque étape, dis en une phrase ce qui vient ensuite et propose de le lancer. Un « oui » suffit.
 
-## P0 — Construire le moteur (une seule fois)
+## Construire le moteur (une seule fois)
+Il peut dire : « construis mon moteur », « prépare tout pour monter ». À proposer de toi-même s'il n'y a rien dans moteur/.
 Construis mon moteur de montage dans moteur/, en Python (venv .venv) + ffmpeg-full. Un seul moteur pour tous mes lots.
 Entrées : la fiche de style (styles/<style>.md) et un fichier de réglages par projet (_projet/clips-cfg.json). Sortie : un reel 9:16 par clip.
 Il doit savoir :
@@ -257,7 +263,8 @@ Trois modes : DRY (texte final mot à mot + horaires, sans rendu), PIECES (planc
 Si la fiche de style contient beaucoup de motion design, ajoute Remotion au moteur pour les habillages animés.
 Teste-le sur 30 s d'un de mes rushes et montre-moi le résultat.
 
-## STYLE — Copier un style à partir de liens
+## Copier un style à partir de liens
+Il peut dire : « copie le style de ces reels : <liens> », « je veux ce montage-là ».
 Je veux reproduire le style de montage de ces vidéos (pas leur contenu) : <liens>. Nom du style : <nom>.
 1. Télécharge chaque vidéo avec yt-dlp dans styles/references/<nom>/ (Instagram bloque : ajoute --cookies-from-browser chrome).
 2. Extrais des images : une toutes les 0,5 s sur les 5 premières secondes, puis une par seconde, plus une à chaque changement de plan. Fais des planches de 12 images et regarde-les toutes.
@@ -268,14 +275,16 @@ Je veux reproduire le style de montage de ces vidéos (pas leur contenu) : <lien
 7. Sépare ce qui revient sur toutes les références (le style) de ce qui n'apparaît qu'une fois (à me faire trancher).
 8. Montre-moi une image de chaque élément (hook, sous-titres, nom à l'écran) recréé à côté de l'original, avant tout montage.
 
-## P1 — Nouveau projet et transcription
+## Nouveau projet et transcription
+Il peut dire : « monte-moi ce rush : <chemin> », « j'ai un nouveau call à clipper ».
 Nouveau projet : <nom>. Le rush est ici : <chemin>.
 Crée projets/<date> <nom>/ avec rush/, _projet/ et releases/, copie le rush dans rush/.
 Vérifie le format avec ffprobe (définition, i/s, codec, HDR, orientation). Si c'est du 4K, du 50 i/s ou du HEVC : fais un proxy 25 i/s H.264 en pleine définition sur la zone utile, avec le son.
 Transcris tout le rush avec ElevenLabs Scribe, par morceaux de 5 min en parallèle, mot à mot avec horaires et locuteurs. Cherche les trous (mot de plus de 4 s, blanc de plus de 6 s) et relance ces morceaux.
 Dis-moi qui parle, en vérifiant 2 ou 3 passages.
 
-## P2 — Sélection des clips
+## Sélection des clips
+Enchaîne directement après la transcription, sans attendre qu'on te le demande.
 Lis toute la transcription et propose les meilleurs clips.
 - un clip = un seul propos, du début à la fin ;
 - 30 s minimum, 30 à 60 s visé ; s'il manque du contexte, remonte plus haut ;
@@ -284,35 +293,43 @@ Lis toute la transcription et propose les meilleurs clips.
 - garde les passages où <qui enseigne> enseigne, les chiffres forts et les phrases choc ; coupe quand l'autre personne parle trop longtemps.
 Pour chaque clip : numéro, IN, OUT (HH:MM:SS:FF), durée, sujet en 5 mots. Écris _projet/clips.md, puis une page de revue HTML : la vidéo, chaque clip cliquable qui se lit de IN à OUT, Garder / Sortir, un champ commentaire et un bouton « Copier mes choix ». Vérifie que la vidéo a du son, puis ouvre-la.
 
-## P3 — Les hooks
+## Les hooks
+Il colle le résultat de « Copier mes choix », ou dit : « voilà mes choix », « écris les hooks ».
 Voici mes choix : <résultat de « Copier mes choix »>.
 Pour chaque clip gardé, écris UN hook : question ou mystère, en « tu », phrase complète, 2 lignes maximum, repris des mots exacts du clip, chiffres en chiffres, jamais un titre descriptif.
 Écris _projet/hooks.json et montre-moi toute la liste d'un coup.
 
-## P4 — Le clip test
+## Le clip test
+Il peut dire : « vas-y », « monte le clip test ». À proposer dès que les hooks sont validés.
 Monte un clip test avec la fiche styles/<style>.md. Choisis un clip qui a du contexte, un chiffre et un changement de plan, jamais le plus court.
 1. Fige ses plages. 2. Montre-moi le texte final mot à mot (DRY) et la planche des plans (PIECES). 3. Rends-le et fais le contrôle complet (CLAUDE.md + ERREURS.md). 4. Ouvre-le une seule fois, fini et contrôlé. 5. Donne-moi le temps estimé pour tout le lot.
 
-## P5 — Le lot
+## Le lot
+Il peut dire : « c'est bon, lance tout », « monte le reste ».
 Clip test validé. Applique exactement les mêmes réglages à tous les clips gardés.
 1. Fige les plages de TOUS les clips avant la moindre coupe fine. 2. Relis le texte de chaque clip mot à mot : tics, redites, faux départs, mots mal transcrits. 3. Rends le lot, 3 clips à la fois maximum, les plus longs d'abord. 4. Contrôle chaque rendu. 5. Livre dans releases/ et donne-moi la liste : numéro, hook, durée, alertes.
 
-## P6 — Les corrections
+## Les corrections
+Il envoie ses retours, souvent avec des captures : « refais le 4 et le 11 : … », « les sous-titres sont trop bas ».
 Corrections : <liste, une ligne par clip avec le timecode>.
 Refais UNIQUEMENT ces clips, en nouvelle version (-v2). Vérifie si le même défaut existe dans les autres clips, sans les re-rendre, et dis-moi lesquels. Ajoute chaque correction qui peut revenir dans le moteur, la fiche de style ou ERREURS.md.
 
-## P7 — Le Drive
+## Le Drive
+Il peut dire : « mets-les sur le Drive ».
 Copie les reels validés de releases/ dans mon Google Drive (dossier monté dans le Finder) : Reels/<Personne>/<AAAA>/<MM - Mois>/S<n> (<lundi> - <dimanche>)/<source>/.
 Attends la fin de la synchronisation, puis vérifie avec le connecteur Google Drive que chaque fichier est en ligne et fait la bonne taille. Partage le dossier en lecture par lien et enregistre le lien de chaque fichier dans _projet/drive-links.json.
 
-## P8 — Les descriptions
+## Les descriptions
+Il peut dire : « écris les descriptions », avec ou sans appel à l'action.
 Écris la description Instagram de chaque reel dans _projet/descriptions.json : en « tu », adressée au viewer (jamais « X et Y parlent de… »), 1re phrase = l'idée du reel, 2 à 4 lignes, chiffres en chiffres, un seul appel à l'action : <CTA>, 3 hashtags maximum. Montre-les-moi toutes avant de publier.
 
-## P9 — La programmation dans Metricool
+## La programmation dans Metricool
+Il peut dire : « programme-les à 11 h et 17 h à partir de lundi ».
 Programme les reels avec le connecteur Metricool, marque <nom>, fuseau Europe/Paris. Créneaux : <heures>, à partir du <date>, dans l'ordre <ordre>. Jamais deux reels de la même source à la suite. Média = le lien Drive (drive-links.json), description = descriptions.json. Réseaux : <Instagram, TikTok, YouTube Shorts, Facebook>.
 Quand c'est fait, relis la liste programmée dans Metricool et donne-moi le tableau date → reel, sans trou ni doublon.
 
-## P10 — Clore le lot
+## Clore le lot
+Il peut dire : « on clôt le lot », « c'est fini ». À proposer de toi-même une fois tout programmé.
 Vérifie que chaque reel de releases/ est sur le Drive et programmé dans Metricool. Supprime les fichiers de travail lourds (proxy, morceaux de rendu), garde les réglages et la transcription. Liste ce qu'on a corrigé pendant ce lot et ajoute à ERREURS.md ou à la fiche de style ce qui doit devenir une règle.
 KIT_FILE_END
 ecrire "$KIT/ERREURS.md" <<'KIT_FILE_END'

@@ -26,7 +26,7 @@ Les étapes, dans l'ordre :
 6. Sur claude.ai : Paramètres → Connecteurs → connecter Google Drive, puis chercher Metricool et le connecter. Les deux doivent afficher « Connecté ».
 7. Installer le kit : ouvrir la page d'installation, cliquer sur « Copier » au bloc du kit, le coller dans le Terminal, Entrée. Me prévenir que le mot de passe Mac et les clés ne s'affichent pas quand on les tape. Si une fenêtre demande d'installer les « outils de ligne de commande », cliquer sur Installer et attendre. À la fin, coller la clé ElevenLabs puis Groq quand le Terminal les demande.
 8. Fermer le Terminal, en ouvrir un nouveau, taper cc puis Entrée : Claude s'ouvre dans le dossier de montage.
-9. Coller dans Claude (dans le Terminal) le message de vérification de la page d'installation. Il répare ce qui manque puis lance P0.
+9. Coller dans Claude (dans le Terminal) le message de vérification de la page d'installation. Il répare ce qui manque puis construit le moteur de montage.
 
 Si une étape bloque, demande-moi une capture d'écran.
 
