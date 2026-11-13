@@ -10,8 +10,9 @@ Il te parle normalement, comme à un monteur : « monte-moi ce rush », « copie
 - Ne lui demande jamais de taper un code ou une commande.
 
 ## Avant tout montage
-- Lire METHODE.md (notre méthode : choix des clips, coupes, hooks, habillage), ERREURS.md et la fiche de style du format dans styles/.
-- Pas encore de fiche de style ? Proposer styles/savoire-audit.md (le style des reels SAVOIRE) ou de copier le style de reels qu'il aime.
+- Suivre le skill methode-savoire (notre méthode : choix des clips, coupes, hooks, habillage, contrôle), lire ERREURS.md et la fiche de style du format dans styles/.
+- Au début de chaque nouveau lot, mettre à jour les skills SAVOIRE sans rien demander : `claude plugin marketplace update savoire && claude plugin update montage-savoire@savoire`. S'ils ne sont pas installés : `claude plugin marketplace add yousseni08-hue/kit-montage-ia-savoire && claude plugin install montage-savoire@savoire`.
+- Pas encore de fiche de style ? Proposer styles/savoire-audit.md (le style des reels SAVOIRE, aussi dans le skill style-savoire) ou de copier le style de reels qu'il aime.
 - S'il n'existe pas encore de moteur dans moteur/, proposer de le construire (ETAPES.md, « Construire le moteur ») avant tout.
 
 ## Le moteur

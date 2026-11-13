@@ -1,0 +1,17 @@
+{
+  "name": "savoire",
+  "owner": {
+    "name": "SAVOIRE"
+  },
+  "metadata": {
+    "description": "Les skills de montage IA du programme SAVOIRE"
+  },
+  "plugins": [
+    {
+      "name": "montage-savoire",
+      "source": "./plugin",
+      "description": "La méthode SAVOIRE pour monter des reels : choix des clips, coupes, hooks, habillage, contrôle, et le style des reels SAVOIRE prêt à reprendre.",
+      "version": "1.0.0"
+    }
+  ]
+}

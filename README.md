@@ -25,10 +25,20 @@ Ouvre le Terminal, tape `cc`, puis parle-lui normalement, comme à un monteur. A
 | « Programme-les à partir de lundi » | Descriptions, puis Metricool |
 | « On clôt le lot » | Garde tes corrections comme règles |
 
-## Notre méthode
+## Nos skills : la méthode et le style SAVOIRE
 
-[METHODE.md](METHODE.md) : comment on choisit les clips, comment on coupe, comment on écrit les hooks, l'habillage, le contrôle et le rangement. Claude la lit avant chaque montage.
+Notre méthode (choix des clips, coupes, hooks, habillage, contrôle) et le style des reels SAVOIRE sont des skills Claude. L'installateur les ajoute tout seul. Pour les installer seuls, colle cette ligne dans Claude Code :
 
-Tu veux le même rendu que les reels SAVOIRE ? La fiche [styles/savoire-audit.md](styles/savoire-audit.md) est prête, tu peux la reprendre telle quelle ou l'adapter.
+```
+/plugin install montage-savoire --marketplace yousseni08-hue/kit-montage-ia-savoire
+```
+
+Ou dans le Terminal :
+
+```
+claude plugin marketplace add yousseni08-hue/kit-montage-ia-savoire && claude plugin install montage-savoire@savoire
+```
+
+Quand on améliore la méthode, Claude récupère la mise à jour au début de chaque lot. Sources : [plugin/skills](plugin/skills).
 
 Le détail de chaque étape est dans [ETAPES.md](ETAPES.md), les erreurs à éviter dans [ERREURS.md](ERREURS.md).

@@ -1,3 +1,8 @@
+---
+name: methode-savoire
+description: La méthode SAVOIRE pour transformer un call, un audit, un podcast ou une masterclass filmée en reels 9:16 — comment choisir les clips, couper, écrire les hooks, habiller, contrôler, écrire les descriptions et ranger. À utiliser dès qu'on monte, clippe ou découpe une vidéo en reels, qu'on choisit des extraits, qu'on écrit des hooks ou des descriptions Instagram, ou qu'on relit un reel monté.
+---
+
 # La méthode SAVOIRE : comment on choisit, coupe et habille nos reels
 
 C'est la méthode qu'on applique à chaque lot de reels tirés d'un call, d'un audit, d'un podcast ou d'une masterclass filmée. Ces règles viennent de nos lots réels et des retours qu'on a faits dessus. Claude les lit avant chaque montage : tu n'as pas à les lui répéter.
