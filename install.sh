@@ -308,7 +308,7 @@ if [ ! -x "$KIT/.venv/bin/python" ]; then python3 -m venv "$KIT/.venv"; fi
 "$KIT/.venv/bin/pip" install -q numpy pillow opencv-python requests
 ok "Dossier prêt"
 # Raccourci : taper cc dans le Terminal ouvre Claude dans le dossier de montage, sans demandes d'autorisation
-grep -q "alias cc=" "$HOME/.zshrc" 2>/dev/null || echo "alias cc='cd ~/Montage-IA && claude --dangerously-skip-permissions'" >> "$HOME/.zshrc"
+grep -q "alias cc=" "$HOME/.zshrc" 2>/dev/null || echo "alias cc='cd ~/Montage-IA 2>/dev/null; claude --dangerously-skip-permissions'" >> "$HOME/.zshrc"
 ok "Raccourci cc créé"
 
 etape "5/5 Clés API (tape Entrée pour passer, tu pourras relancer plus tard)"
