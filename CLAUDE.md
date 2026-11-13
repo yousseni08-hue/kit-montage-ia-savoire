@@ -6,7 +6,8 @@ Ce dossier sert à monter des reels avec Claude Code, du rush brut jusqu'à la p
 L'utilisateur tape un raccourci (« P0 », « P1 : <chemin du rush> », « STYLE : <liens> », « P6 : <corrections> »…). Ouvre PROMPTS.md, prends la section correspondante, remplace les < > par ce qu'il a donné (ou demande ce qui manque, en une seule question groupée), et exécute-la.
 
 ## Avant tout montage
-- Lire ERREURS.md et la fiche de style du format dans styles/.
+- Lire METHODE.md (notre méthode : choix des clips, coupes, hooks, habillage), ERREURS.md et la fiche de style du format dans styles/.
+- Pas encore de fiche de style ? Proposer styles/savoire-audit.md (le style des reels SAVOIRE) ou STYLE pour en copier un autre.
 - S'il n'existe pas encore de moteur dans moteur/, proposer P0.
 
 ## Le moteur

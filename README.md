@@ -29,4 +29,10 @@ Ouvre le Terminal, tape `cc`, puis les raccourcis :
 | P9 | Programme dans Metricool |
 | P10 | Clôt le lot et garde tes corrections |
 
+## Notre méthode
+
+[METHODE.md](METHODE.md) : comment on choisit les clips, comment on coupe, comment on écrit les hooks, l'habillage, le contrôle et le rangement. Claude la lit avant chaque montage.
+
+Tu veux le même rendu que les reels SAVOIRE ? La fiche [styles/savoire-audit.md](styles/savoire-audit.md) est prête, tu peux la reprendre telle quelle ou l'adapter.
+
 Les consignes complètes sont dans [PROMPTS.md](PROMPTS.md), les erreurs à éviter dans [ERREURS.md](ERREURS.md).
